@@ -6,13 +6,15 @@ import 'package:get/get.dart';
 import '../../controller/auth_controller.dart';
 
 class AuthWrapper extends StatelessWidget {
-   AuthWrapper({super.key});
+  AuthWrapper({super.key});
 
   final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
     return Obx(() =>
-        authController.isLogin.value ? UploadImagePage() : LoginPage());
+        authController.isLogin.value != null && authController.isLogin.value!
+            ? UploadImagePage()
+            : LoginPage());
   }
 }

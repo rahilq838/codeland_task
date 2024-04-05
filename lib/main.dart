@@ -4,14 +4,16 @@ import 'package:codeland_task/ui/auth/auth_wrapper.dart';
 import 'package:codeland_task/ui/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp( MyApp());
+void main() async {
+  await GetStorage.init();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key});
-   final AuthController authController = Get.put(AuthController());
+  MyApp({super.key});
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
